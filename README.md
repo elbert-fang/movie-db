@@ -1,4 +1,5 @@
 # movie-db
+A single page app written in Vue, Vue Router with Vuex using an open source movie database API for displaying the information.
 
 ## Project setup
 ```
@@ -20,5 +21,5 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Movie DB api
+See [Movie DB api documentation](https://developers.themoviedb.org/3).
