@@ -8,7 +8,8 @@
     </div>
 
     <div class="search">
-      Search here
+      <input v-model="search"
+        placeholder="Search movies" />
     </div>
 
   </header>
@@ -18,6 +19,11 @@
 <script>
 export default {
   name: 'HeaderSection',
+  data() {
+    return {
+      search: ''
+    }
+  }
 }
 </script>
 

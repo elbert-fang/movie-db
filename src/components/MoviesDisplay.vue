@@ -1,8 +1,22 @@
 <template>
-  <div class="flex">54
-    <p>10 movie boxes here</p>
-    <button class="rounded-full"
-      @click="getMovies">LOAD</button>
+  <div class="wrapper">
+
+    <div class="flex">
+      <p>10 movie boxes here</p>
+      <button class="rounded-full"
+        @click="getMovies">LOAD</button>
+    </div>
+
+    <div>
+      <ol>
+        <li v-for="movie in movies"
+          :key="movie.id">
+          {{movie.title}}
+          {{movie.vote_average}}
+        </li>
+      </ol>
+    </div>
+
   </div>
 
 </template>
@@ -13,6 +27,7 @@ export default {
 
   data() {
     return {
+      errorMsg: '',
       loading: false,
       movies: []
     }
@@ -27,11 +42,10 @@ export default {
       this.loading = true
 
       try {
-        const result = await fetch(`${baseurl}`)
-        console.log(result)
-        const json = await result.json()
-        console.log(json)
-        this.moives = json.results
+        const response = await fetch(`${baseurl}`)
+        const data = await response.json()
+        console.log(data.results)
+        this.movies = data.results.slice(0, 10)
       } catch (error) {
         this.errorMsg = 'There was an error, please try again'
         console.log(error)
