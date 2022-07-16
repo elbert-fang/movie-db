@@ -1,18 +1,13 @@
 <template>
   <div class="wrapper">
-
-    <div class="flex">
-      <p>10 movie boxes here</p>
-      <button class="rounded-full"
-        @click="getMovies">LOAD</button>
-    </div>
-
     <div>
       <ol>
         <li v-for="movie in movies"
           :key="movie.id">
+          <a :href="'/movie/' + movie.id">
           {{movie.title}}
           {{movie.vote_average}}
+          </a>
         </li>
       </ol>
     </div>
@@ -32,6 +27,12 @@ export default {
       movies: []
     }
   },
+
+  mounted(){
+    this.getMovies()
+  },
+
+
 
   methods: {
     async getMovies() {

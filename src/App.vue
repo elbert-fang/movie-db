@@ -2,20 +2,19 @@
   <div class="max-w-screen-2xl mx-auto"
     id="app">
     <header-section />
-    <movies-display />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import HeaderSection from './components/HeaderSection.vue'
-import MoviesDisplay from './components/MoviesDisplay.vue'
+
 
 export default {
   name: 'App',
   components: {
     'header-section': HeaderSection,
-    'movies-display': MoviesDisplay
   }
 }
 </script>
